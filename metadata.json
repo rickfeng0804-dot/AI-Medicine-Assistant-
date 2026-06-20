@@ -1,0 +1,6 @@
+{
+  "name": "AI 藥師助理",
+  "description": "結合藥品字首字尾對照表、用藥副作用與禁忌提示、高中生物與化學考點教學、交互作用生活衛教、10則必知用藥觀念，以及結合配圖分析的 AI 護理解答助理。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
