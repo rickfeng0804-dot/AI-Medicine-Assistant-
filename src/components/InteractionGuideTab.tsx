@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { ALL_DRUGS } from "../data";
-import { ShieldCheck, ShieldAlert, AlertTriangle, Salad, Milk, Wine, Info, Plus, Trash2, Zap } from "lucide-react";
+import { ShieldCheck, ShieldAlert, AlertTriangle, Salad, Milk, Wine, Info, Plus, Trash2, Zap, Activity } from "lucide-react";
 import { DrugItem } from "../types";
 
 export default function InteractionGuideTab() {
@@ -398,6 +398,75 @@ export default function InteractionGuideTab() {
               </p>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Supplement Matrix Section */}
+      <div className="mt-8 bg-white border border-slate-150 rounded-3xl p-6 shadow-xs overflow-hidden">
+        <h3 className="text-sm font-extrabold text-slate-800 flex items-center gap-2 mb-4">
+          <Activity className="h-5 w-5 text-blue-600" />
+          常見保健食品 ✕ 常規藥物：交互作用風險矩陣
+        </h3>
+        <div className="overflow-x-auto pb-2">
+          <table className="w-full text-xs text-center border-collapse min-w-[600px]">
+            <thead>
+              <tr>
+                <th className="p-3 border-b-2 border-slate-200 text-slate-500 font-bold bg-slate-50 rounded-tl-xl">藥物類別 \ 保健食品</th>
+                <th className="p-3 border-b-2 border-slate-200 text-slate-700 font-bold bg-slate-50">益生菌 (Probiotics)</th>
+                <th className="p-3 border-b-2 border-slate-200 text-slate-700 font-bold bg-slate-50">維他命C (Vit C)</th>
+                <th className="p-3 border-b-2 border-slate-200 text-slate-700 font-bold bg-slate-50">鈣片 / 鐵劑 (Ca/Fe)</th>
+                <th className="p-3 border-b-2 border-slate-200 text-slate-700 font-bold bg-slate-50 rounded-tr-xl">魚油 (Fish Oil)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="p-3 border-b border-slate-100 font-bold text-slate-600 bg-slate-50/50">抗生素 (Antibiotics)</td>
+                <td className="p-3 border-b border-slate-100 bg-amber-50/30 text-amber-700">
+                  <span className="font-bold flex items-center justify-center gap-1"><AlertTriangle className="h-3 w-3"/> 需間隔2小時</span>
+                  <span className="text-[10px] block mt-1 opacity-80">抗生素會殺死活菌</span>
+                </td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 bg-rose-50/40 text-rose-700">
+                  <span className="font-bold flex items-center justify-center gap-1"><ShieldAlert className="h-3 w-3"/> 極高風險</span>
+                  <span className="text-[10px] block mt-1 opacity-80">金屬離子螯合阻礙吸收</span>
+                </td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+              </tr>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="p-3 border-b border-slate-100 font-bold text-slate-600 bg-slate-50/50">降血脂藥 (Statins)</td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 bg-amber-50/30 text-amber-700">
+                  <span className="font-bold flex items-center justify-center gap-1"><AlertTriangle className="h-3 w-3"/> 注意劑量</span>
+                  <span className="text-[10px] block mt-1 opacity-80">少數情況可能增加肌肉痠痛副作用</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="p-3 border-b border-slate-100 font-bold text-slate-600 bg-slate-50/50">降血壓藥 (CCB類)</td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 border-b border-slate-100 bg-amber-50/30 text-amber-700">
+                  <span className="font-bold flex items-center justify-center gap-1"><AlertTriangle className="h-3 w-3"/> 拮抗效應</span>
+                  <span className="text-[10px] block mt-1 opacity-80">高劑量鈣可能降低藥物降壓效果</span>
+                </td>
+                <td className="p-3 border-b border-slate-100 text-slate-500">安全 (無明顯干擾)</td>
+              </tr>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="p-3 font-bold text-slate-600 bg-slate-50/50 rounded-bl-xl">抗凝血藥 (Warfarin/Xaban)</td>
+                <td className="p-3 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 bg-amber-50/30 text-amber-700">
+                  <span className="font-bold flex items-center justify-center gap-1"><AlertTriangle className="h-3 w-3"/> 注意劑量</span>
+                  <span className="text-[10px] block mt-1 opacity-80">高劑量維生素C可能降低藥效</span>
+                </td>
+                <td className="p-3 text-slate-500">安全 (無明顯干擾)</td>
+                <td className="p-3 bg-rose-50/40 text-rose-700 rounded-br-xl">
+                  <span className="font-bold flex items-center justify-center gap-1"><ShieldAlert className="h-3 w-3"/> 出血風險</span>
+                  <span className="text-[10px] block mt-1 opacity-80">深海魚油具抗凝血加乘效果</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
