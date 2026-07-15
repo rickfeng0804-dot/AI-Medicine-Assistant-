@@ -9,10 +9,11 @@ import PrefixSuffixTab from "./components/PrefixSuffixTab";
 import DrugCatalogTab from "./components/DrugCatalogTab";
 import EduLessonsTab from "./components/EduLessonsTab";
 import InteractionGuideTab from "./components/InteractionGuideTab";
+import ChineseInteractionsTab from "./components/ChineseInteractionsTab";
 import HealthTipsTab from "./components/HealthTipsTab";
 import AiConsultantTab from "./components/AiConsultantTab";
 
-import { Activity, ShieldCheck, BookOpen, Sparkles, HeartPulse, Pill } from "lucide-react";
+import { Activity, ShieldCheck, BookOpen, Sparkles, HeartPulse, Pill, Leaf } from "lucide-react";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("patterns");
@@ -27,6 +28,8 @@ export default function App() {
         return <EduLessonsTab />;
       case "interactions":
         return <InteractionGuideTab />;
+      case "chineseInteractions":
+        return <ChineseInteractionsTab />;
       case "tips":
         return <HealthTipsTab />;
       case "consultant":
@@ -38,11 +41,11 @@ export default function App() {
 
   // Quick stats card details to display at the bottom of the main frame
   const quickStats = [
-    { title: "收錄字首字尾", value: "22 類首尾", icon: Pill, desc: "覆蓋九大系統性疾病藥名" },
-    { title: "慢性用藥品項", value: "32+ 一線藥", icon: HeartPulse, desc: "包含副作用與禁忌說明" },
-    { title: "高中考點教材", value: "4 大專案", icon: BookOpen, desc: "對標108課綱生物與化學" },
-    { title: "健康日常生活", value: "10 則衛教", icon: Activity, desc: "日常用藥基本常識" },
-    { title: "AI 在線分析", value: "Gemini 3.5", icon: Sparkles, desc: "拍照藥袋辨識與對話解答" }
+    { title: "收錄字首字尾", value: "22 類首尾", icon: Pill, color: "text-rose-500", desc: "覆蓋九大系統性疾病藥名" },
+    { title: "慢性用藥品項", value: "32+ 一線藥", icon: HeartPulse, color: "text-red-500", desc: "包含副作用與禁忌說明" },
+    { title: "中西交互項目", value: "20 味中藥", icon: Leaf, color: "text-emerald-500", desc: "中草藥與西藥代謝對照" },
+    { title: "高中考點教材", value: "4 大專案", icon: BookOpen, color: "text-amber-500", desc: "對標108課綱生物與化學" },
+    { title: "AI 在線分析", value: "Gemini 3.5", icon: Sparkles, color: "text-purple-500", desc: "拍照藥袋辨識與對話解答" }
   ];
 
   return (
@@ -63,8 +66,8 @@ export default function App() {
               const Icon = stat.icon;
               return (
                 <div key={idx} className="border-r border-slate-100 last:border-0 pr-4">
-                  <div className="flex items-center gap-2 text-blue-600">
-                    <Icon className="h-4 w-4 text-blue-600" />
+                  <div className="flex items-center gap-2">
+                    <Icon className={`h-4 w-4 ${stat.color}`} />
                     <span className="text-xs text-slate-400 font-extrabold uppercase tracking-wider">{stat.title}</span>
                   </div>
                   <p className="text-lg font-black text-slate-800 mt-1 font-mono">{stat.value}</p>
@@ -95,7 +98,7 @@ export default function App() {
           </p>
 
           <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-400 gap-2">
-            <p>© 2026 AI 藥師助理 & 高中自然學程生化科普著作. All Rights Reserved.</p>
+            <p>© 2026 AI 藥師助理 & 臺北市立成功高中 馮柏翔作品. All Rights Reserved.</p>
             <p className="flex items-center gap-1.5 justify-center">
               <ShieldCheck className="h-4.5 w-4.5 text-blue-500" />
               用藥不重疊，吃藥配溫水，守護您的生理循環與臟器安康

@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Pill, Activity, ShieldAlert, BookOpen, HeartPulse, Sparkles } from "lucide-react";
+import { Pill, Activity, ShieldAlert, BookOpen, HeartPulse, Sparkles, Leaf } from "lucide-react";
 
 interface HeaderProps {
   activeTab: string;
@@ -13,12 +13,13 @@ interface HeaderProps {
 
 export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   const navItems = [
-    { id: "patterns", label: "字首字尾整理", icon: Pill, desc: "疾病與藥名比對" },
-    { id: "catalog", label: "藥品查詢目錄", icon: HeartPulse, desc: "適應症與副作用" },
-    { id: "lessons", label: "生化知識學堂", icon: BookOpen, desc: "高中微教案銜接" },
-    { id: "interactions", label: "交互作用防護", icon: ShieldAlert, desc: "用藥安全與生活" },
-    { id: "tips", label: "衛教知識十則", icon: Activity, desc: "日常用藥基本常識" },
-    { id: "consultant", label: "AI 藥師在線", icon: Sparkles, desc: "對話與藥卡識別" }
+    { id: "patterns", label: "字首字尾整理", icon: Pill, desc: "疾病與藥名比對", activeColor: "text-rose-600", inactiveColor: "text-rose-400" },
+    { id: "catalog", label: "藥品查詢目錄", icon: HeartPulse, desc: "適應症與副作用", activeColor: "text-red-600", inactiveColor: "text-red-400" },
+    { id: "lessons", label: "生化知識學堂", icon: BookOpen, desc: "高中微教案銜接", activeColor: "text-amber-600", inactiveColor: "text-amber-400" },
+    { id: "interactions", label: "交互作用防護", icon: ShieldAlert, desc: "用藥安全與生活", activeColor: "text-indigo-600", inactiveColor: "text-indigo-400" },
+    { id: "chineseInteractions", label: "中藥交互作用", icon: Leaf, desc: "中西藥安全檢索", activeColor: "text-emerald-600", inactiveColor: "text-emerald-400" },
+    { id: "tips", label: "衛教知識十則", icon: Activity, desc: "日常用藥基本常識", activeColor: "text-sky-600", inactiveColor: "text-sky-400" },
+    { id: "consultant", label: "AI 藥師在線", icon: Sparkles, desc: "對話與藥卡識別", activeColor: "text-purple-600", inactiveColor: "text-purple-400" }
   ];
 
   return (
@@ -43,7 +44,10 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-3 text-xs flex-wrap sm:flex-nowrap">
+            <div className="bg-blue-400/20 text-blue-100 border border-blue-400/30 px-3 py-1 rounded-lg text-[11px] font-semibold tracking-wide">
+              臺北市立成功高中 馮柏翔作品
+            </div>
             <div className="flex items-center gap-2 bg-[#2d4a77] px-3 py-1 rounded-lg border border-[#3b5e94]">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
               <span className="font-semibold text-blue-100">系統在線</span>
@@ -71,7 +75,7 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
                     : "border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
-                <Icon className={`h-4.5 w-4.5 ${isActive ? "text-[#1a365d]" : "text-slate-400"}`} />
+                <Icon className={`h-4.5 w-4.5 ${isActive ? item.activeColor : item.inactiveColor} transition-colors`} />
                 <div className="text-left">
                   <div className={`font-semibold ${isActive ? "text-slate-900" : "text-slate-600"}`}>
                     {item.label}
