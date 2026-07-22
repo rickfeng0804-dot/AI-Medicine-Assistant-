@@ -33,26 +33,26 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
+                <h1 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
                   AI 藥師助理
-                  <span className="text-blue-300 font-normal text-xs bg-blue-900/50 px-2 py-0.5 rounded-md border border-blue-800">專業智慧版 v2.4</span>
+                  <span className="text-blue-300 font-normal text-xs bg-blue-900/50 px-2.5 py-0.5 rounded-md border border-blue-800">專業智慧版 v2.4</span>
                 </h1>
               </div>
-              <p className="text-[11px] text-blue-200 mt-0.5 font-light">
+              <p className="text-xs text-blue-200 mt-1 font-light">
                 高階生化教學、臨床用藥副作用對照與交互作用防禦系統
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 text-xs flex-wrap sm:flex-nowrap">
-            <div className="bg-blue-400/20 text-blue-100 border border-blue-400/30 px-3 py-1 rounded-lg text-[11px] font-semibold tracking-wide">
+          <div className="flex items-center gap-3 text-sm flex-wrap sm:flex-nowrap">
+            <div className="bg-blue-400/20 text-blue-100 border border-blue-400/30 px-3 py-1 rounded-lg text-xs font-semibold tracking-wide">
               臺北市立成功高中 馮柏翔作品
             </div>
             <div className="flex items-center gap-2 bg-[#2d4a77] px-3 py-1 rounded-lg border border-[#3b5e94]">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
               <span className="font-semibold text-blue-100">系統在線</span>
             </div>
-            <div className="text-blue-200/80 font-mono text-[11px] hidden md:block">
+            <div className="text-blue-200/80 font-mono text-xs hidden md:block">
               108課綱生物/化學教材對接 • 國家藥品臨床指導
             </div>
           </div>
@@ -69,18 +69,18 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex gap-2.5 items-center py-3 px-4 border-b-2 font-medium text-xs transition-all whitespace-nowrap outline-hidden cursor-pointer ${
+                className={`flex gap-2.5 items-center py-3 px-4 border-b-2 font-medium text-sm transition-all whitespace-nowrap outline-hidden cursor-pointer ${
                   isActive
                     ? "border-[#1a365d] text-[#1a365d] bg-blue-50/40 font-bold"
                     : "border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
-                <Icon className={`h-4.5 w-4.5 ${isActive ? item.activeColor : item.inactiveColor} transition-colors`} />
+                <Icon className={`h-5 w-5 ${isActive ? item.activeColor : item.inactiveColor} transition-colors`} />
                 <div className="text-left">
                   <div className={`font-semibold ${isActive ? "text-slate-900" : "text-slate-600"}`}>
                     {item.label}
                   </div>
-                  <div className="text-[9px] text-slate-400 font-normal leading-tight hidden lg:block">
+                  <div className="text-[11px] text-slate-400 font-normal leading-tight hidden lg:block">
                     {item.desc}
                   </div>
                 </div>

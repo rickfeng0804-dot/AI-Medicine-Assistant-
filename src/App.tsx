@@ -67,11 +67,11 @@ export default function App() {
               return (
                 <div key={idx} className="border-r border-slate-100 last:border-0 pr-4">
                   <div className="flex items-center gap-2">
-                    <Icon className={`h-4 w-4 ${stat.color}`} />
-                    <span className="text-xs text-slate-400 font-extrabold uppercase tracking-wider">{stat.title}</span>
+                    <Icon className={`h-4.5 w-4.5 ${stat.color}`} />
+                    <span className="text-sm text-slate-500 font-extrabold uppercase tracking-wider">{stat.title}</span>
                   </div>
-                  <p className="text-lg font-black text-slate-800 mt-1 font-mono">{stat.value}</p>
-                  <p className="text-[10px] text-slate-400 mt-0.5">{stat.desc}</p>
+                  <p className="text-xl font-black text-slate-800 mt-1 font-mono">{stat.value}</p>
+                  <p className="text-xs text-slate-400 mt-0.5">{stat.desc}</p>
                 </div>
               );
             })}
@@ -80,27 +80,27 @@ export default function App() {
       </section>
 
       {/* 4. Elegant Footer with safety disclaimer */}
-      <footer className="bg-slate-900 text-slate-400 text-[11px] py-10 border-t border-slate-800">
+      <footer className="bg-slate-900 text-slate-300 text-xs py-10 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left space-y-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-300">
             <div className="flex items-center gap-2">
-              <span className="bg-blue-500 h-2 w-2 rounded-full"></span>
-              <p className="font-extrabold tracking-wider">AI 藥師助理 — 108課綱生化微教案與臨床安全指引平台</p>
+              <span className="bg-blue-500 h-2.5 w-2.5 rounded-full"></span>
+              <p className="font-extrabold tracking-wider text-sm text-white">AI 藥師助理 — 108課綱生化微教案與臨床安全指引平台</p>
             </div>
-            <p className="font-mono text-[10px] text-slate-400">
+            <p className="font-mono text-xs text-slate-400">
               系統版本: v2.4.0 (Powered by Google Gemini-3.5-Flash)
             </p>
           </div>
 
-          <p className="text-slate-400/95 leading-relaxed max-w-4xl text-left border-l-2 border-blue-500 pl-3.5">
-            <span className="font-bold text-slate-305">🚨 重要安全免責聲明：</span>
+          <p className="text-slate-300 leading-relaxed max-w-4xl text-left border-l-2 border-blue-500 pl-3.5 text-xs sm:text-sm">
+            <span className="font-bold text-white">🚨 重要安全免責聲明：</span>
             本智慧應用程式所載之全部藥名命名規律、字尾對應、用藥禁忌、副作用指引、藥物與食物配對防禦檢索、和 AI 藥袋掃描辨識，均僅作一般通識教學、高中自然學科微教案銜接以及日常保健輔助参考。非等同、亦不能替代任何專業臨床診斷、藥師核發調劑或執業醫師診治。若您目前正處於服藥療程或有身體疾病症狀，應遵循各大教學醫院之實體主治醫方處方箋藥指示。
           </p>
 
-          <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-400 gap-2">
+          <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-2">
             <p>© 2026 AI 藥師助理 & 臺北市立成功高中 馮柏翔作品. All Rights Reserved.</p>
             <p className="flex items-center gap-1.5 justify-center">
-              <ShieldCheck className="h-4.5 w-4.5 text-blue-500" />
+              <ShieldCheck className="h-5 w-5 text-blue-500" />
               用藥不重疊，吃藥配溫水，守護您的生理循環與臟器安康
             </p>
           </div>

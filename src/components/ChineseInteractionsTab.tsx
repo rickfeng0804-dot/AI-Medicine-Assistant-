@@ -580,17 +580,17 @@ export default function ChineseInteractionsTab() {
       {/* Intro Header Section */}
       <div className="border-b border-slate-200 pb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-            <Leaf className="h-5.5 w-5.5 text-blue-600 animate-pulse" />
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
+            <Leaf className="h-6 w-6 text-blue-600 animate-pulse" />
             中藥與西藥臨床交互作用安全檢索
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-sm text-slate-500 mt-1">
             結合高中選修化學之有機配合物（螯合螯合）、生物內分泌系統假性醛固酮增多症等，科學化解碼 20 項常見中藥的臨床用藥禁忌與生化機制
           </p>
         </div>
         <div className="bg-blue-50/70 border border-blue-150 rounded-xl px-4 py-2.5 max-w-sm">
-          <div className="text-[10px] text-blue-600 font-extrabold uppercase tracking-wider mb-0.5">專業審查校對</div>
-          <p className="text-[11px] text-slate-600 font-medium leading-normal">
+          <div className="text-xs text-blue-600 font-extrabold uppercase tracking-wider mb-0.5">專業審查校對</div>
+          <p className="text-xs text-slate-600 font-medium leading-normal">
             臺北市立成功高中 馮柏翔作品學術研究組監製
           </p>
         </div>
@@ -602,8 +602,8 @@ export default function ChineseInteractionsTab() {
         {/* Left Column: Search & 20 Med List (5 Cols) */}
         <div className="lg:col-span-5 space-y-4 flex flex-col h-[650px]">
           <div className="bg-white border border-slate-150 rounded-3xl p-5 shadow-xs flex-1 flex flex-col overflow-hidden">
-            <h3 className="text-sm font-bold text-slate-800 mb-4 flex items-center gap-1.5 shrink-0">
-              <Search className="h-4.5 w-4.5 text-blue-600" />
+            <h3 className="text-base font-bold text-slate-800 mb-4 flex items-center gap-1.5 shrink-0">
+              <Search className="h-5 w-5 text-blue-600" />
               常見 20 味中藥字典檢索
             </h3>
 
@@ -614,10 +614,10 @@ export default function ChineseInteractionsTab() {
                 placeholder="搜尋中藥名稱、拼音或成分 (如: 甘草, Betaine)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-xs focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 text-slate-700"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 text-slate-700"
               />
               <span className="absolute left-3.5 top-3.5 text-slate-400">
-                <Search className="h-3.5 w-3.5" />
+                <Search className="h-4 w-4" />
               </span>
             </div>
 
@@ -627,7 +627,7 @@ export default function ChineseInteractionsTab() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-2.5 py-1.5 rounded-xl text-[10px] font-bold cursor-pointer transition-all whitespace-nowrap ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all whitespace-nowrap ${
                     selectedCategory === cat
                       ? "bg-[#1a365d] text-white"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200/60"
@@ -657,29 +657,29 @@ export default function ChineseInteractionsTab() {
                     >
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
-                          <span className="font-extrabold text-sm text-slate-800">{med.name}</span>
-                          <span className="text-[10px] text-slate-400 font-mono italic">{med.scientificName}</span>
+                          <span className="font-extrabold text-base text-slate-800">{med.name}</span>
+                          <span className="text-xs text-slate-400 font-mono italic">{med.scientificName}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-slate-200/70 rounded px-1.5 py-0.2">
+                          <span className="text-xs font-bold text-slate-500 bg-slate-100 border border-slate-200/70 rounded px-2 py-0.5">
                             {med.category}
                           </span>
                           {highRiskCount > 0 && (
-                            <span className="text-[9px] font-extrabold text-rose-600 bg-rose-50 border border-rose-100 rounded px-1.5 py-0.2 flex items-center gap-0.5">
-                              <ShieldAlert className="h-2.5 w-2.5" />
+                            <span className="text-xs font-extrabold text-rose-600 bg-rose-50 border border-rose-100 rounded px-2 py-0.5 flex items-center gap-0.5">
+                              <ShieldAlert className="h-3 w-3" />
                               高危 {highRiskCount} 項
                             </span>
                           )}
                         </div>
                       </div>
-                      <div className="text-[11px] font-bold text-blue-600 hover:translate-x-0.5 transition-transform">
+                      <div className="text-xs font-bold text-blue-600 hover:translate-x-0.5 transition-transform">
                         詳情
                       </div>
                     </button>
                   );
                 })
               ) : (
-                <div className="text-center py-12 text-slate-400 text-xs">
+                <div className="text-center py-12 text-slate-400 text-sm">
                   無符合關鍵字之中藥材
                 </div>
               )}
@@ -697,20 +697,20 @@ export default function ChineseInteractionsTab() {
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-100 pb-5">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2.5">
-                  <h3 className="text-2xl font-black text-slate-800 tracking-tight">{selectedCM.name}</h3>
-                  <span className="text-xs font-semibold text-slate-400 font-mono">({selectedCM.pinyin})</span>
+                  <h3 className="text-3xl font-black text-slate-800 tracking-tight">{selectedCM.name}</h3>
+                  <span className="text-sm font-semibold text-slate-400 font-mono">({selectedCM.pinyin})</span>
                 </div>
-                <p className="text-xs text-slate-500">
+                <p className="text-sm text-slate-500">
                   學名：<span className="italic font-medium">{selectedCM.scientificName}</span> | 類別：<span className="font-bold text-slate-700">{selectedCM.category}</span>
                 </p>
-                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
                   功效：{selectedCM.description}
                 </p>
               </div>
 
               <div className="bg-blue-50 text-blue-700 border border-blue-100 rounded-2xl px-4 py-2.5 text-center shrink-0">
-                <div className="text-[9px] text-blue-500 uppercase font-black tracking-wider leading-tight">核心化學成分</div>
-                <div className="text-xs font-black font-mono mt-1 max-w-[150px] truncate" title={selectedCM.activeComponents}>
+                <div className="text-xs text-blue-500 uppercase font-black tracking-wider leading-tight">核心化學成分</div>
+                <div className="text-sm font-black font-mono mt-1 max-w-[170px] truncate" title={selectedCM.activeComponents}>
                   {selectedCM.activeComponents.split(" (")[0]}
                 </div>
               </div>
@@ -719,20 +719,20 @@ export default function ChineseInteractionsTab() {
             {/* Active Components & High School connection */}
             <div className="bg-slate-50 rounded-2xl p-4.5 border border-slate-100 space-y-2">
               <div className="flex items-center gap-2">
-                <BookOpen className="h-4.5 w-4.5 text-blue-600" />
-                <h4 className="text-xs font-black text-slate-700 uppercase tracking-wider">
+                <BookOpen className="h-5 w-5 text-blue-600" />
+                <h4 className="text-sm font-black text-slate-700 uppercase tracking-wider">
                   高中學科銜接：活性分子生化作用
                 </h4>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 {selectedCM.highSchoolBiochem}
               </p>
             </div>
 
             {/* Western Drug Interaction Alerts */}
             <div className="space-y-3">
-              <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
-                <ShieldAlert className="h-4 w-4 text-rose-500 animate-pulse" />
+              <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                <ShieldAlert className="h-4.5 w-4.5 text-rose-500 animate-pulse" />
                 西藥交互作用對照警告表
               </h4>
 
@@ -744,23 +744,23 @@ export default function ChineseInteractionsTab() {
                   >
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-extrabold text-slate-800">{inter.westernClass}</span>
-                        <span className="text-[10px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                        <span className="text-sm font-extrabold text-slate-800">{inter.westernClass}</span>
+                        <span className="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
                           例：{inter.westernExample}
                         </span>
                       </div>
-                      <span className={`text-[10px] font-black px-2.5 py-0.5 border rounded-full ${getRiskBadgeColor(inter.risk)}`}>
+                      <span className={`text-xs font-black px-2.5 py-0.5 border rounded-full ${getRiskBadgeColor(inter.risk)}`}>
                         {inter.risk}
                       </span>
                     </div>
-                    <div className="text-xs leading-relaxed text-slate-600 bg-white/70 border border-slate-50/50 rounded-xl p-2.5">
-                      <p className="font-semibold text-[11px] text-slate-800 mb-0.5 flex items-center gap-1">
-                        <AlertTriangle className="h-3 w-3 text-amber-500 shrink-0" />
+                    <div className="text-sm leading-relaxed text-slate-600 bg-white/70 border border-slate-50/50 rounded-xl p-3">
+                      <p className="font-semibold text-xs text-slate-800 mb-1 flex items-center gap-1">
+                        <AlertTriangle className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                         分子干擾機制：
                       </p>
-                      <span className="text-[11px] text-slate-600">{inter.mechanism}</span>
+                      <span className="text-xs sm:text-sm text-slate-600">{inter.mechanism}</span>
                     </div>
-                    <div className="text-[11px] text-rose-800 font-semibold leading-relaxed border-l-2 border-rose-400 pl-2">
+                    <div className="text-xs sm:text-sm text-rose-800 font-semibold leading-relaxed border-l-2 border-rose-400 pl-2.5 py-0.5">
                       臨床防護指引：{inter.suggestion}
                     </div>
                   </div>
@@ -780,20 +780,20 @@ export default function ChineseInteractionsTab() {
           {/* Form Side */}
           <div className="space-y-4 lg:max-w-md">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5.5 w-5.5 text-blue-400 animate-pulse" />
-              <h3 className="text-lg font-extrabold tracking-tight">中西藥併服：快篩安全評鑑器</h3>
+              <Sparkles className="h-6 w-6 text-blue-400 animate-pulse" />
+              <h3 className="text-xl font-extrabold tracking-tight">中西藥併服：快篩安全評鑑器</h3>
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-300 leading-relaxed">
               擔心服用的中藥材和常規西藥藥箋相衝？在此選取一味中藥與您的一線西藥類別，系統將立即剖析其藥理拮抗或酵素干擾程度。
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="space-y-1.5">
-                <label className="text-[10px] uppercase font-black text-slate-400 tracking-wider">選擇中藥材 (20味)</label>
+                <label className="text-xs uppercase font-black text-slate-300 tracking-wider">選擇中藥材 (20味)</label>
                 <select
                   value={calcCMId}
                   onChange={(e) => setCalcCMId(e.target.value)}
-                  className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl py-2 px-3 text-xs focus:ring-2 focus:ring-blue-500 outline-hidden cursor-pointer"
+                  className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl py-2.5 px-3 text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 outline-hidden cursor-pointer"
                 >
                   {CHINESE_MEDICINES_DATA.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -804,11 +804,11 @@ export default function ChineseInteractionsTab() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] uppercase font-black text-slate-400 tracking-wider">選擇西藥類別</label>
+                <label className="text-xs uppercase font-black text-slate-300 tracking-wider">選擇西藥類別</label>
                 <select
                   value={calcWesternClass}
                   onChange={(e) => setCalcWesternClass(e.target.value)}
-                  className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl py-2 px-3 text-xs focus:ring-2 focus:ring-blue-500 outline-hidden cursor-pointer"
+                  className="w-full bg-slate-800 text-white border border-slate-700 rounded-xl py-2.5 px-3 text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 outline-hidden cursor-pointer"
                 >
                   <option value="Anticoagulants">抗凝血 / 抗血小板 (華法林、阿斯匹靈等)</option>
                   <option value="Antidiabetics">降血糖西藥 (美獲平、胰島素等)</option>
@@ -826,11 +826,11 @@ export default function ChineseInteractionsTab() {
           {/* Diagnosis Result Output Side */}
           <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <span className="text-[11px] font-bold text-slate-400">
+              <span className="text-xs font-bold text-slate-300">
                 併用安全評估結果
               </span>
               {calcResult?.hasRisk ? (
-                <span className={`text-[10px] font-bold px-3 py-1 rounded-full border ${
+                <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
                   calcResult.risk === "高風險" 
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/30" 
                     : "bg-amber-500/20 text-amber-300 border-amber-500/30"
@@ -838,7 +838,7 @@ export default function ChineseInteractionsTab() {
                   {calcResult.risk}警告
                 </span>
               ) : (
-                <span className="text-[10px] font-bold px-3 py-1 rounded-full border bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
+                <span className="text-xs font-bold px-3 py-1 rounded-full border bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
                   安全無虞
                 </span>
               )}
@@ -846,23 +846,23 @@ export default function ChineseInteractionsTab() {
 
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-extrabold text-blue-300">{calcResult?.medName}</span>
+                <span className="text-base font-extrabold text-blue-300">{calcResult?.medName}</span>
                 <span className="text-xs text-slate-400">併服</span>
-                <span className="text-sm font-extrabold text-blue-300">{calcResult?.class}</span>
+                <span className="text-base font-extrabold text-blue-300">{calcResult?.class}</span>
               </div>
 
-              <div className="bg-black/30 rounded-xl p-3 text-xs leading-relaxed space-y-1.5 border border-white/5">
-                <p className="text-slate-300 text-[11px] font-semibold flex items-center gap-1">
-                  <Info className="h-3.5 w-3.5 text-blue-400" />
+              <div className="bg-black/30 rounded-xl p-3.5 text-xs sm:text-sm leading-relaxed space-y-1.5 border border-white/5">
+                <p className="text-slate-200 text-xs font-semibold flex items-center gap-1">
+                  <Info className="h-4 w-4 text-blue-400" />
                   分子藥理與代謝分析：
                 </p>
-                <p className="text-slate-400 text-[11px]">
+                <p className="text-slate-300 text-xs sm:text-sm">
                   {calcResult?.mechanism}
                 </p>
               </div>
 
-              <div className="text-xs leading-relaxed bg-blue-500/10 border border-blue-500/20 text-blue-200 rounded-xl p-3">
-                <span className="font-extrabold text-white text-[11px] block mb-0.5">※ 藥師專業處置指引：</span>
+              <div className="text-xs sm:text-sm leading-relaxed bg-blue-500/10 border border-blue-500/20 text-blue-100 rounded-xl p-3.5">
+                <span className="font-extrabold text-white text-xs sm:text-sm block mb-0.5">※ 藥師專業處置指引：</span>
                 {calcResult?.suggestion}
               </div>
             </div>
